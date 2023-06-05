@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Style+Script&display=swap');
+body {
+    font-family: Quicksand;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.handwritting {
+    font-family: 'Style Script';
+}
