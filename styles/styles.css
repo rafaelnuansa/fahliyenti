@@ -8,3 +8,23 @@ body {
 .handwritting {
     font-family: 'Style Script';
 }
+
+.invitation-wrapper {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  .fade-in {
+    opacity: 1;
+    animation: fade-in-animation 0.5s ease-in;
+  }
+  
+  @keyframes fade-in-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  

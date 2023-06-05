@@ -3,6 +3,16 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 
 export default function InvitationComponent({ onOpenInvitation }) {
   const [countdown, setCountdown] = useState("");
+  const [guestName, setGuestName] = useState("");
+
+  useEffect(() => {
+    // Mendapatkan query string dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("to") || "Tamu";
+
+    // Set nama tamu pada state
+    setGuestName(name);
+  }, []);
 
   useEffect(() => {
     // Waktu target countdown (9 pagi pada tanggal 14 Agustus 2023)
@@ -32,7 +42,7 @@ export default function InvitationComponent({ onOpenInvitation }) {
       // Hentikan interval jika countdown telah selesai
       if (timeRemaining < 0) {
         clearInterval(interval);
-        setCountdown("Countdown Selesai");
+        setCountdown("Acara telah dimulai");
       }
     }, 1000);
 
@@ -71,7 +81,7 @@ export default function InvitationComponent({ onOpenInvitation }) {
             to
           </p>
           <p className="text-3xl text-gray-600 font-bold handwritting">
-          Rafael Nuansa
+            {guestName}
           </p>
           <button
             className="bg-slate-600 hover:bg-slate-800 mt-2 text-white font-bold py-2 px-4 rounded"
