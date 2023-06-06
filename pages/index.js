@@ -3,6 +3,11 @@ import HeroComponent from "@/components/HeroComponent";
 import NavbarComponent from "@/components/NavbarComponent";
 import InvitationComponent from "@/components/InvitationComponent";
 import Head from "next/head";
+import TimeComponent from "@/components/TimeComponent";
+import LocationComponent from "@/components/LocationComponent";
+import ConfirmComponent from "@/components/ConfirmComponent";
+import WishComponent from "@/components/WishComponent";
+import Layout from "@/components/Layout";
 
 export default function Home() {
   const [isInvitationVisible, setIsInvitationVisible] = useState(true);
@@ -27,16 +32,28 @@ export default function Home() {
       <Head>
         <title>Yenti & Fahli Wedding Invitation</title>
         <meta name="description" content="Undangan Pernikahan Yenti & Fahli" />
-        <meta name="keywords" content="Invitation, Wedding, Wedding Invitation" />
+        <meta
+          name="keywords"
+          content="Invitation, Wedding, Wedding Invitation"
+        />
       </Head>
       {isInvitationVisible ? (
-        <div className={`invitation-wrapper ${isInvitationVisible ? "fade-in" : ""}`}>
+        <div
+          className={`invitation-wrapper ${
+            isInvitationVisible ? "fade-in" : ""
+          }`}
+        >
           <InvitationComponent onOpenInvitation={handleOpenInvitation} />
         </div>
       ) : (
         <>
-          <HeroComponent />
-          <NavbarComponent />
+          <Layout>
+            <HeroComponent />
+            <TimeComponent />
+            <LocationComponent />
+            <ConfirmComponent />
+            <WishComponent />
+          </Layout>
         </>
       )}
     </>

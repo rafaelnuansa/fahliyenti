@@ -54,7 +54,7 @@ export default function InvitationComponent({ onOpenInvitation }) {
 
   return (
     <>
-      <div className="mx-auto max-w-md pt-0 py-10 h-full">
+      <div className="mx-auto max-w-md py-10 h-full">
         <div className="w-100">
           <Player
             autoplay
