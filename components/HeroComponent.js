@@ -72,14 +72,14 @@ export default function HeroComponent() {
           <p
             className="text-lg text-white leading-8 text-gray-600 font-bold animate-fade-in"
             data-aos="fade-right"
-            data-aos-duration="1000"
+            data-aos-duration="800"
           >
             Senin, 14 Agustus 2023
           </p>
           <div
             className="text-4xl text-white mt-4 flex items-center text-gray-600 justify-center font-bold gap-x-6 animate-pulse"
             data-aos="slide-up"
-            data-aos-duration="1000"
+            data-aos-duration="800"
           >
             {countdown}
           </div>
