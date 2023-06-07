@@ -3,6 +3,7 @@ import Head from "next/head";
 import NavbarComponent from "./NavbarComponent";
 import AudioPlayer from "./AudioPlayer";
 import { useRouter } from "next/router";
+import AOS from "aos";
 export default function Layout({ children }) {
   useEffect(() => {
     // Mulai pemutaran audio saat halaman dimuat
@@ -10,6 +11,10 @@ export default function Layout({ children }) {
     if (audioPlayer) {
       audioPlayer.play();
     }
+  }, []);
+
+  useEffect(() => {
+    AOS.init();
   }, []);
 
   const router = useRouter();

@@ -20,14 +20,17 @@ export default function ConfirmComponent() {
     sendMessage(phoneNumber, message);
   };
 
+
   return (
-    <div className="flex justify-center items-center h-60">
+    <div className="flex justify-center items-center h-60" data-aos="fade-up" data-aos-duration="1000">
       <div>
         <h2 className="text-center text-3xl font-bold text-gray-800 mb-8">Konfirmasi Kehadiran</h2>
         <div className="flex justify-center">
           <button
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4 flex items-center"
             onClick={handleConfirmationYenti}
+            data-aos="zoom-in"
+            data-aos-duration="1000"
           >
             <AiOutlineMessage className="mr-2" />
             Kabari Yenti
@@ -35,6 +38,8 @@ export default function ConfirmComponent() {
           <button
             className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center"
             onClick={handleConfirmationFahli}
+            data-aos="zoom-in"
+            data-aos-duration="1000"
           >
             <AiOutlineMessage className="mr-2" />
             Kabari Fahli

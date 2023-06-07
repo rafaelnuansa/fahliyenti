@@ -15,14 +15,25 @@ export default function WishComponent() {
   ];
 
   return (
-    <section id="wish" className="bg-gray-100 px-5">
+    <section
+      id="wish"
+      className="bg-gray-100 px-5"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+    >
       <div className="relative px-4 py-24 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold text-gray-800 mb-8">
           Latests Wishes &amp; Comments
         </h2>
         <div className="grid gap-6">
           {wishes.map((wish, index) => (
-            <WishCard key={index} name={wish.name} message={wish.message} />
+            <WishCard
+              key={index}
+              name={wish.name}
+              message={wish.message}
+              data-aos="fade-left"
+              data-aos-duration="1000"
+            />
           ))}
         </div>
       </div>
