@@ -15,6 +15,8 @@ const AudioPlayer = ({ autoPlay }) => {
 
   return (
         <ReactPlayer
+          width={0}
+          height={0}
           url="/marryyou.mp3"
           playing={isPlaying}
           loop={true}
