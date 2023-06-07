@@ -57,36 +57,32 @@ export default function HeroComponent() {
           data-aos="zoom-in"
           data-aos-duration="1000"
         >
-          <div className="relative text-white rounded-full px-3 py-1 font-bold leading-6 text-gray-600 animate-fade-in">
+          <div className="relative text-white rounded-full px-3 py-1 font-bold leading-6 text-gray-600">
             Hello, We Are Getting Married
           </div>
         </div>
         <div className="text-center">
           <h1
-            className="text-8xl text-white font-bold tracking-tight text-gray-800 handwritting animate-fade-in"
+            className="text-8xl text-white font-bold tracking-tight text-gray-800 handwritting"
             data-aos="flip-left"
             data-aos-duration="1000"
           >
             Yenti & Fahli
           </h1>
           <p
-            className="text-lg text-white leading-8 text-gray-600 font-bold animate-fade-in"
-            data-aos="fade-right"
-            data-aos-duration="800"
+            className="text-lg text-white leading-8 text-gray-600 font-bold"
+   
           >
             Senin, 14 Agustus 2023
           </p>
           <div
             className="text-4xl text-white mt-4 flex items-center text-gray-600 justify-center font-bold gap-x-6 animate-pulse"
-            data-aos="slide-up"
-            data-aos-duration="800"
+         
           >
             {countdown}
           </div>
           <div
-            className="text-xl text-white mt-2 text-gray-600 font-bold animate-fade-in"
-            data-aos="fade-up"
-            data-aos-duration="1000"
+            className="text-xl text-white mt-2 text-gray-600 font-bold"
           >
             Hari Jam Menit Detik
           </div>
