@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import HeroComponent from "@/components/HeroComponent";
+import NavbarComponent from "@/components/NavbarComponent";
 import InvitationComponent from "@/components/InvitationComponent";
+import Head from "next/head";
 import TimeComponent from "@/components/TimeComponent";
 import LocationComponent from "@/components/LocationComponent";
 import ConfirmComponent from "@/components/ConfirmComponent";

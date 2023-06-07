@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Style+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Style+Script&display=swap');
 body {
-    font-family: Quicksand;
+    font-family: Montserrat;
     font-weight: 500;
     font-size: 1rem;
 }
@@ -9,22 +9,145 @@ body {
     font-family: 'Style Script';
 }
 
+/* Webkit */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* Firefox */
+/* Mozilla Firefox 64+ */
+.scrollbar {
+  scrollbar-color: #888 #f1f1f1;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+
 .invitation-wrapper {
-    opacity: 0;
-    transition: opacity 0.5s ease-in;
-  }
-  
-  .fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}
+
+.fade-out {
+  opacity: 0;
+  animation: swipe-out-animation 0.5s ease-in;
+  transform: translateY(-100%);
+}
+
+@keyframes swipe-out-animation {
+  0% {
     opacity: 1;
-    animation: fade-in-animation 0.5s ease-in;
+    transform: translateY(0%);
   }
-  
-  @keyframes fade-in-animation {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
   }
-  
+}
+
+.hero-container {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(-1px) scale(1.1);
+  z-index: -1;
+  background-attachment: fixed;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Sesuaikan dengan tingkat kegelapan yang diinginkan */
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+/* Tambahkan animasi parallax pada hero-bg */
+@keyframes parallax {
+  0% {
+    transform: translateZ(-1px) scale(1.1);
+  }
+  100% {
+    transform: translateZ(-1px) scale(1);
+  }
+}
+
+.hero-bg {
+  animation: parallax 10s infinite alternate;
+}
+
+
+.audio-container {
+  position: fixed;
+  bottom: 120px;
+  left: 20px;
+}
+
+.audio-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.audio-button:focus {
+  outline: none;
+}
+
+.audio-button:hover {
+  background-color: #555;
+}

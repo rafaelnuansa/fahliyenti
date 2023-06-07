@@ -1,4 +1,5 @@
 import React from 'react';
+import { AiOutlineMessage } from 'react-icons/ai';
 
 export default function ConfirmComponent() {
   const sendMessage = (phoneNumber, message) => {
@@ -22,24 +23,24 @@ export default function ConfirmComponent() {
   return (
     <div className="flex justify-center items-center h-60">
       <div>
-        <h2 className="sm:text-5xl md:text-6xl font-bold mb-4 handwritting text-center">Konfirmasi Kehadiran</h2>
+        <h2 className="text-center text-3xl font-bold text-gray-800 mb-8">Konfirmasi Kehadiran</h2>
         <div className="flex justify-center">
           <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mr-4 flex items-center"
             onClick={handleConfirmationYenti}
           >
+            <AiOutlineMessage className="mr-2" />
             Kabari Yenti
           </button>
           <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded flex items-center"
             onClick={handleConfirmationFahli}
           >
+            <AiOutlineMessage className="mr-2" />
             Kabari Fahli
           </button>
         </div>
       </div>
-
-      
     </div>
   );
 }
