@@ -14,8 +14,6 @@ const AudioPlayer = ({ autoPlay }) => {
   };
 
   return (
-    <div className="audio-player">
-      <div className="audio-container">
         <ReactPlayer
           url="/marryyou.mp3"
           playing={isPlaying}
@@ -23,11 +21,6 @@ const AudioPlayer = ({ autoPlay }) => {
           progressInterval={1000}
           onProgress={handleProgress}
         />
-        <button className="audio-button" onClick={togglePlay}>
-          {isPlaying ? <FaPause /> : <FaPlay />}
-        </button>
-      </div>
-    </div>
   );
 };
 
