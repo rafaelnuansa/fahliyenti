@@ -6,6 +6,8 @@ export default function WishComponent() {
   const initialWishLimit = 3; // Batas awal jumlah wish yang ditampilkan
   const [wishLimit, setWishLimit] = useState(initialWishLimit); // State untuk melacak jumlah wish yang ditampilkan
   const [showForm, setShowForm] = useState(false); // State untuk menampilkan/menyembunyikan form
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
 
   // Daftar wish
   const wishes = [
@@ -41,6 +43,28 @@ export default function WishComponent() {
     setShowForm(true);
   };
 
+  // Fungsi untuk menghandle perubahan nilai input nama
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  // Fungsi untuk menghandle perubahan nilai input pesan
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  // Fungsi untuk mengirim wish
+  const sendWish = (event) => {
+    event.preventDefault();
+    // Implementasi logika untuk mengirim wish baru
+    console.log("Send Wish:", name, message);
+    // Reset nilai input
+    setName("");
+    setMessage("");
+    // Sembunyikan form
+    setShowForm(false);
+  };
+
   return (
     <section
       id="wish"
@@ -74,33 +98,44 @@ export default function WishComponent() {
             </button>
           </div>
         )}
-        {!showForm && (
-          <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-8">
+          {!showForm ? (
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center"
               onClick={makeWish}
-              data-aos="fade-up"
-              data-aos-duration="1000"
             >
               <RiPencilLine className="mr-2" />
               Make a Wish
             </button>
-          </div>
-        )}
-        {showForm && (
-          <div className="flex justify-center mt-8" data-aos="fade-up" data-aos-duration="1000">
-            {/* Tambahkan dialog form di sini */}
-            <form>
-              {/* Isi dengan elemen input, textarea, dll. sesuai kebutuhan */}
+          ) : (
+            <form onSubmit={sendWish} className="max-w mx-auto">
+            <div className="grid flex-col items-center">
+              <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={handleNameChange}
+                className="bg-white border-2 border-gray-300 rounded py-2 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                required
+              />
+              <textarea
+                placeholder="Your Message"
+                value={message}
+                onChange={handleMessageChange}
+                className="bg-white border-2 border-gray-300 rounded py-2 px-4 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                required
+              />
               <button
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               >
                 Submit
               </button>
-            </form>
-          </div>
-        )}
+            </div>
+          </form>
+          
+          )}
+        </div>
       </div>
     </section>
   );
