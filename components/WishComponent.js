@@ -101,7 +101,7 @@ export default function WishComponent() {
         <div className="flex justify-center mt-8">
           {!showForm ? (
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded flex items-center"
+              className="bg-zinc-700 hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded flex items-center"
               onClick={makeWish}
             >
               <RiPencilLine className="mr-2" />
@@ -127,7 +127,7 @@ export default function WishComponent() {
               />
               <button
                 type="submit"
-                className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="mt-4 bg-zinc-700 hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded"
               >
                 Submit
               </button>
