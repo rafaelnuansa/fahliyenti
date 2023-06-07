@@ -48,6 +48,8 @@ export default function HeroComponent() {
         style={{
           backgroundImage: "url('/bg1.jpg')",
         }}
+        data-aos="fade"
+        data-aos-duration="1000"
       ></div>
       <div className="hero-content">
         <div

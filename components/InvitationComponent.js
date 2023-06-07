@@ -1,15 +1,8 @@
 import { useState, useEffect } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { FaEnvelopeOpenText } from "react-icons/fa";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
 export default function InvitationComponent({ onOpenInvitation }) {
   const [guestName, setGuestName] = useState("");
-
-  useEffect(() => {
-    AOS.init();
-  }, []);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -22,7 +15,7 @@ export default function InvitationComponent({ onOpenInvitation }) {
       <div className="mx-auto max-w-md py-10 h-full">
         <div
           className="w-100"
-          data-aos="fade"
+          data-aos="fade-in"
           data-aos-duration="1000"
         >
           <Player
@@ -46,28 +39,28 @@ export default function InvitationComponent({ onOpenInvitation }) {
         <div className="text-center">
           <h1
             className="text-7xl font-bold tracking-tight text-gray-800 handwritting"
-            data-aos="fade"
+            data-aos="flip-left"
             data-aos-duration="1000"
           >
             Yenti & Fahli
           </h1>
           <p
             className="text-base sm:text-lg leading-8 text-gray-600 font-bold handwritting"
-            data-aos="fade"
+            data-aos="flip-right"
             data-aos-duration="1000"
           >
             14 / 08 / 23
           </p>
           <p
             className="text-base sm:text-2xl text-gray-600 font-bold handwritting"
-            data-aos="fade"
+            data-aos="fade-in"
             data-aos-duration="1000"
           >
             to
           </p>
           <p
             className="text-3xl text-gray-600 font-bold handwritting"
-            data-aos="fade"
+            data-aos="flip-right"
             data-aos-duration="1000"
           >
             {guestName}

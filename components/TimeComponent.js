@@ -6,7 +6,7 @@ export default function TimeComponent() {
     <div
       id="schedule"
       className="relative overflow-hidden"
-      data-aos="fade-left"
+      data-aos="fade-up"
       data-aos-duration="1200"
     >
       <div className="relative px-4 py-24 mx-auto max-w-7xl sm:px-6 lg:px-8">
