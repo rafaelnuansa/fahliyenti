@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { FaEnvelopeOpenText } from "react-icons/fa";
+import Head from "next/head";
+import { useRouter } from "next/router";
+
 export default function InvitationComponent({ onOpenInvitation }) {
   const [guestName, setGuestName] = useState("");
 
@@ -10,14 +13,30 @@ export default function InvitationComponent({ onOpenInvitation }) {
     setGuestName(name);
   }, []);
 
+  const router = useRouter();
+  const currentURL = router.asPath;
+
   return (
     <>
+      <Head>
+        <title>Yenti & Fahli Wedding Invitation</title>
+        <meta name="description" content="Undangan Pernikahan Yenti & Fahli" />
+        <meta
+          name="keywords"
+          content="Invitation, Wedding, Wedding Invitation"
+        />
+        <meta property="twitter:image" content="/bg1.jpg" />
+        <meta property="twitter:card" content="/bg1.jpg" />
+        <meta property="og:image" content="/bg1.jpg" />
+        <meta property="og:title" content="Undangan Pernikahan Yenti & Fahli" />
+        <meta
+          property="og:description"
+          content="Undangan Pernikahan Yenti & Fahli"
+        />
+        <meta property="og:url" content={currentURL} />
+      </Head>
       <div className="mx-auto max-w-md py-10 h-full">
-        <div
-          className="w-100"
-          data-aos="fade-in"
-          data-aos-duration="1000"
-        >
+        <div className="w-100" data-aos="fade-in" data-aos-duration="1000">
           <Player
             autoplay
             loop
