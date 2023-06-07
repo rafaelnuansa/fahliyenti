@@ -16,7 +16,6 @@ export default function NavbarComponent() {
           className="inline-flex flex-col items-center justify-center px-5 group hover:bg-zinc-900"
         >
           <AiOutlineHome size={24} className="text-white" />
-          <span className="text-white text-sm">Home</span>
         </ScrollLink>
         <ScrollLink
           to="schedule"
@@ -28,7 +27,6 @@ export default function NavbarComponent() {
           className="inline-flex flex-col items-center justify-center px-5 group hover:bg-zinc-900"
         >
           <AiOutlineCalendar size={24} className="text-white" />
-          <span className="text-white text-sm">Schedule</span>
         </ScrollLink>
         <ScrollLink
           to="location"
@@ -39,7 +37,6 @@ export default function NavbarComponent() {
           className="inline-flex flex-col items-center justify-center px-5 group hover:bg-zinc-900"
         >
           <AiOutlineEnvironment size={24} className="text-white" />
-          <span className="text-white text-sm">Location</span>
         </ScrollLink>
         <ScrollLink
           to="wish"
@@ -50,7 +47,6 @@ export default function NavbarComponent() {
           className="inline-flex flex-col items-center justify-center px-5 group hover:bg-zinc-900"
         >
           <AiOutlineEdit size={24} className="text-white" />
-          <span className="text-white text-sm">Wish</span>
         </ScrollLink>
       </div>
     </div>
