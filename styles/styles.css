@@ -121,10 +121,14 @@ body {
   animation: parallax 10s infinite alternate;
 }
 
+.audio-player {
+  overflow: hidden;
+}
 
 .audio-container {
   position: fixed;
-  bottom: 120px;
+  bottom: 100px;
+  width: 0;
   left: 20px;
 }
 
