@@ -3,7 +3,22 @@ import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 export default function TimeComponent() {
 
   return (
-    <div
+    <>
+<div
+  className="slots"
+  style={{
+    display: "flex",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    alignItems: "center",
+    justifyContent: "center"
+  }}
+></div>
+
+<div
       id="schedule"
       className="relative overflow-hidden"
       data-aos="fade-up"
@@ -48,5 +63,6 @@ export default function TimeComponent() {
         </div>
       </div>
     </div>
+    </>
   );
 }
