@@ -59,7 +59,7 @@ export default function TimeComponent() {
               <AiOutlineClockCircle className="mt-1 mr-1" color="gray-600"/>  <span className="text-gray-600 font-bold">Akad Nikah: 08.00 WIB</span>
               </div>
               <div className="flex justify-center text-center">
-              <AiOutlineClockCircle className="mt-1 mr-1" color="gray"/> <span className="text-gray-600 font-bold">Resepsi: 11.00 WIB - Selesai</span>
+              <AiOutlineClockCircle className="mt-1 mr-1" color="gray-600"/> <span className="text-gray-600 font-bold">Resepsi: 11.00 WIB - Selesai</span>
               </div>
 
             </div>
