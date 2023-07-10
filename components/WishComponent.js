@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { RiPencilLine } from "react-icons/ri";
 import WishCard from "./WishCard";
 import firebase from "@/firebase";
@@ -6,12 +6,14 @@ import { getFirestore, doc, setDoc, collection, addDoc, query, orderBy, getDocs 
 import { toast } from "react-toastify";
 export default function WishComponent() {
   const initialWishLimit = 3;
+  const wishRef = useRef(null); 
   const [wishLimit, setWishLimit] = useState(initialWishLimit);
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [wishes, setWishes] = useState([]);
   const firestore = getFirestore(firebase);
+  
   useEffect(() => {
     const fetchWishes = async () => {
       try {
@@ -60,17 +62,18 @@ export default function WishComponent() {
       const snapshot = await getDocs(q);
       const fetchedWishes = snapshot.docs.map((doc) => doc.data());
       setWishes(fetchedWishes);
+      wishRef.current.scrollIntoView({ behavior: "smooth" });
       toast.success("Terima kasih atas harapan dan komentar anda!"); // Menampilkan toast sukses
     } catch (error) {
       console.error("Error sending wish:", error);
       toast.error("Error sending wish."); // Menampilkan toast kesalahan
     }
   };
-  
 
   return (
     <section
       id="wish"
+      ref={wishRef}
       className="bg-gray-100 px-5"
       data-aos="fade-up"
       data-aos-duration="1000"
