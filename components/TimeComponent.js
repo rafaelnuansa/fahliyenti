@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { AiOutlineCalendar, AiOutlineClockCircle } from "react-icons/ai";
 export default function TimeComponent() {
@@ -31,23 +32,36 @@ export default function TimeComponent() {
           <div className="max-w-3xl mx-auto mt-16 relative">
             <div className="absolute transform -translate-x-1/2 bg-gray-400 h-full"></div>
             <div className="mt-6 text-gray-300">
+
+              <div className="flex justify-center">
+
+                <>
+                  <Image
+                    src="/ring.png"
+                    alt="Ring"
+                    width={100}
+                    height={100}
+                    style={{ filter: 'grayscale(100%)' }}
+                  />
+                </>
+              </div>
               <div className="flex justify-center">
                 <div className="flex items-center">
                   <h3 className="text-8xl font-bold mr-4 text-gray-600">14</h3>
                   <AiOutlineCalendar className="h-8 w-8 text-gray-600" />
                 </div>
               </div>
-              
+
               <div className="flex justify-center text-center">
-                  <span className="text-gray-600 font-bold">Agustus, 2023</span>
-                </div>
+                <span className="text-gray-600 font-bold text-3xl">Agustus, 2023</span>
+              </div>
+              <div className="flex justify-center text-center mt-1">
+              <AiOutlineClockCircle className="mt-1 mr-1" color="gray-600"/>  <span className="text-gray-600 font-bold">Akad Nikah: 09.00 WIB</span>
+              </div>
               <div className="flex justify-center text-center">
-                  <span className="text-gray-600 font-bold">Akad Nikah: 09.00 WIB</span>
-                </div>
-              <div className="flex justify-center text-center">
-                  <span className="text-gray-600 font-bold">Resepsi: 11.00 - 15.00 WIB</span>
-                </div>
-              
+              <AiOutlineClockCircle className="mt-1 mr-1" color="gray"/> <span className="text-gray-600 font-bold">Resepsi: 11.00 - 15.00 WIB</span>
+              </div>
+
             </div>
           </div>
         </div>
