@@ -56,10 +56,10 @@ export default function TimeComponent() {
                 <span className="text-gray-600 font-bold text-3xl">Agustus, 2023</span>
               </div>
               <div className="flex justify-center text-center mt-1">
-              <AiOutlineClockCircle className="mt-1 mr-1" color="gray-600"/>  <span className="text-gray-600 font-bold">Akad Nikah: 09.00 WIB</span>
+              <AiOutlineClockCircle className="mt-1 mr-1" color="gray-600"/>  <span className="text-gray-600 font-bold">Akad Nikah: 08.00 WIB</span>
               </div>
               <div className="flex justify-center text-center">
-              <AiOutlineClockCircle className="mt-1 mr-1" color="gray"/> <span className="text-gray-600 font-bold">Resepsi: 11.00 - 15.00 WIB</span>
+              <AiOutlineClockCircle className="mt-1 mr-1" color="gray"/> <span className="text-gray-600 font-bold">Resepsi: 11.00 WIB - Selesai</span>
               </div>
 
             </div>
