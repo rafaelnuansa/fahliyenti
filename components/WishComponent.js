@@ -1,69 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { RiPencilLine } from "react-icons/ri";
 import WishCard from "./WishCard";
-
+import firebase from "@/firebase";
+import { getFirestore, doc, setDoc, collection, addDoc, query, orderBy, getDocs } from "firebase/firestore";
+import { toast } from "react-toastify";
 export default function WishComponent() {
-  const initialWishLimit = 3; // Batas awal jumlah wish yang ditampilkan
-  const [wishLimit, setWishLimit] = useState(initialWishLimit); // State untuk melacak jumlah wish yang ditampilkan
-  const [showForm, setShowForm] = useState(false); // State untuk menampilkan/menyembunyikan form
+  const initialWishLimit = 3;
+  const [wishLimit, setWishLimit] = useState(initialWishLimit);
+  const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-
-  // Daftar wish
-  const wishes = [
-    {
-      name: "Dickun Cobul",
-      message: "Congratulations on your wedding!",
-      createdAt: "2023-05-20",
-    },
-    {
-      name: "Ghayung Segs",
-      message: "Wishing you a lifetime of love and happiness.",
-      createdAt: "2023-05-22",
-    },
-    {
-      name: "Krayyyyy",
-      message: "May your journey together be filled with joy and harmony.",
-      createdAt: "2023-05-25",
-    },
-    {
-      name: "Sanbasori",
-      message: "Sansss.",
-      createdAt: "2023-05-25",
-    },
-  ];
-
-  // Fungsi untuk menampilkan lebih banyak wish
+  const [wishes, setWishes] = useState([]);
+  const firestore = getFirestore(firebase);
+  useEffect(() => {
+    const fetchWishes = async () => {
+      try {
+        const q = query(collection(firestore, "wishes"), orderBy("createdAt", "desc"));
+        const snapshot = await getDocs(q);
+        const fetchedWishes = snapshot.docs.map((doc) => doc.data());
+        setWishes(fetchedWishes);
+      } catch (error) {
+        console.error("Error fetching wishes:", error);
+      }
+    };
+  
+    fetchWishes();
+  }, []);
+  
   const loadMoreWishes = () => {
     setWishLimit(wishLimit + initialWishLimit);
   };
-
-  // Fungsi untuk membuat wish baru
+  
   const makeWish = () => {
     setShowForm(true);
   };
-
-  // Fungsi untuk menghandle perubahan nilai input nama
+  
   const handleNameChange = (event) => {
     setName(event.target.value);
   };
-
-  // Fungsi untuk menghandle perubahan nilai input pesan
+  
   const handleMessageChange = (event) => {
     setMessage(event.target.value);
   };
-
-  // Fungsi untuk mengirim wish
-  const sendWish = (event) => {
+  
+  const sendWish = async (event) => {
     event.preventDefault();
-    // Implementasi logika untuk mengirim wish baru
-    console.log("Send Wish:", name, message);
-    // Reset nilai input
-    setName("");
-    setMessage("");
-    // Sembunyikan form
-    setShowForm(false);
+  
+    try {
+      await addDoc(collection(firestore, "wishes"), {
+        name,
+        message,
+        createdAt: new Date().toISOString(),
+      });
+  
+      setName("");
+      setMessage("");
+      setShowForm(false);
+      const q = query(collection(firestore, "wishes"), orderBy("createdAt", "desc"));
+      const snapshot = await getDocs(q);
+      const fetchedWishes = snapshot.docs.map((doc) => doc.data());
+      setWishes(fetchedWishes);
+      toast.success("Terima kasih atas harapan dan komentar anda!"); // Menampilkan toast sukses
+    } catch (error) {
+      console.error("Error sending wish:", error);
+      toast.error("Error sending wish."); // Menampilkan toast kesalahan
+    }
   };
+  
 
   return (
     <section
@@ -109,31 +112,30 @@ export default function WishComponent() {
             </button>
           ) : (
             <form onSubmit={sendWish} className="max-w mx-auto">
-            <div className="grid flex-col items-center">
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={name}
-                onChange={handleNameChange}
-                className="bg-white border-2 border-gray-300 rounded py-2 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-                required
-              />
-              <textarea
-                placeholder="Your Message"
-                value={message}
-                onChange={handleMessageChange}
-                className="bg-white border-2 border-gray-300 rounded py-2 px-4 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
-                required
-              />
-              <button
-                type="submit"
-                className="mt-4 bg-zinc-700 hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-          
+              <div className="grid flex-col items-center">
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={name}
+                  onChange={handleNameChange}
+                  className="bg-white border-2 border-gray-300 rounded py-2 px-4 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                  required
+                />
+                <textarea
+                  placeholder="Your Message"
+                  value={message}
+                  onChange={handleMessageChange}
+                  className="bg-white border-2 border-gray-300 rounded py-2 px-4 h-32 resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="mt-4 bg-zinc-700 hover:bg-zinc-800 text-white font-bold py-2 px-4 rounded"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
           )}
         </div>
       </div>
